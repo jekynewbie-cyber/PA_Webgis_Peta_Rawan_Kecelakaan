@@ -1,0 +1,793 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333333;
+  transition: all 0.3s ease;
+}
+
+/* ========== STYLING NAVBAR YANG DIPERBARUI ========== */
+
+.custom-navbar {
+  background: linear-gradient(135deg, #2c3e50, #3498db) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 0;
+  position: relative;
+  z-index: 1030;
+}
+
+.custom-navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e74c3c, #f39c12, #27ae60, #3498db);
+}
+
+.logo-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover .logo-container {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.brand-subtitle {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tombol Mode Gelap */
+#darkModeToggle {
+  border-radius: 20px;
+  padding: 0.375rem 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode untuk navbar */
+.dark-mode .custom-navbar {
+  background: linear-gradient(135deg, #1a202c, #2d3748) !important;
+}
+
+.dark-mode .logo-container {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .navbar-brand:hover .logo-container {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Statistics Cards */
+.stat-card {
+  background: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border-left: 5px solid;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.stat-card.primary { border-left-color: #3498db; }
+.stat-card.secondary { border-left-color: #e74c3c; }
+.stat-card.success { border-left-color: #27ae60; }
+.stat-card.warning { border-left-color: #f39c12; }
+
+.stat-card h4 {
+  color: #2c3e50;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+}
+
+.stat-card .text-muted {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Charts */
+.chart-container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.chart-container:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.chart-container h6 {
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+/* FIXED: Chart wrapper dengan height tetap */
+.chart-wrapper {
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+.chart-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Tables */
+.table-container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.table-container:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.filter-section {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.filter-section h6 {
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+#map {
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  height: 400px;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.main-map {
+  height: 500px !important;
+}
+
+.card-header {
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c3e50, #3498db) !important;
+  border-radius: 15px 15px 0 0 !important;
+}
+
+/* PERBAIKAN LAYOUT CHART: Kelompok chart untuk memastikan urutan yang benar */
+.charts-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Menghilangkan margin bottom pada chart-container dalam kelompok chart */
+.charts-group .chart-container {
+  margin-bottom: 0;
+}
+
+/* Memastikan chart dalam kelompok memiliki tinggi yang konsisten */
+.charts-group .chart-wrapper {
+  height: 180px;
+}
+
+/* Table Styling */
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  border-top: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 8px;
+}
+
+.table td {
+  font-size: 0.82rem;
+  vertical-align: middle;
+  padding: 10px 8px;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(52, 152, 219, 0.08);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* Text colors for table data */
+.text-danger { color: #e74c3c !important; font-weight: 600; }
+.text-warning { color: #f39c12 !important; font-weight: 600; }
+.text-info { color: #3498db !important; font-weight: 600; }
+
+/* ========== LEGENDA ZONA YANG TIDAK HILANG ========== */
+.legend-zona-container {
+  position: absolute;
+  right: 10px;
+  bottom: 60px;
+  z-index: 1000;
+  max-width: 250px;
+}
+
+.legend-zona {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.legend-zona h6 {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-size: 13px;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.zona-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 2px 0;
+}
+
+.zona-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  margin-right: 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.zona-aman { background-color: #27ae60; }
+.zona-waspada { background-color: #f39c12; }
+.zona-rawan { background-color: #e67e22; }
+.zona-sangat-rawan { background-color: #e74c3c; }
+
+.zona-text {
+  flex: 1;
+  font-size: 11px;
+  color: #333;
+}
+
+/* ========== STYLING JAM DIGITAL ========== */
+.digital-clock-container {
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.digital-clock-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: 0.5s;
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.clock-display {
+  position: relative;
+  z-index: 2;
+}
+
+.time-main {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  margin-bottom: 5px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  transition: color 0.5s ease;
+}
+
+.date-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.location-info {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+}
+
+/* Weather Animation */
+.weather-animation {
+  margin: 15px 0;
+}
+
+.weather-icon {
+  font-size: 2.5rem;
+  color: #f39c12;
+  margin-bottom: 8px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.weather-text {
+  font-size: 0.85rem;
+}
+
+/* ========== PERBAIKAN DARK MODE UNTUK PETA ========== */
+
+/* DARK MODE STYLES untuk elemen di luar peta */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff !important;
+}
+
+.dark-mode .card,
+.dark-mode .card-body,
+.dark-mode .card-title,
+.dark-mode .card-text,
+.dark-mode .form-label,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode span,
+.dark-mode div:not(.chart-wrapper):not(.ol-popup) {
+  color: #ffffff !important;
+}
+
+.dark-mode .text-muted {
+  color: #b0b0b0 !important;
+}
+
+.dark-mode .text-primary {
+  color: #64b5f6 !important;
+}
+
+.dark-mode .chart-container,
+.dark-mode .table-container,
+.dark-mode .filter-section,
+.dark-mode .stat-card,
+.dark-mode .card {
+  background: #2d3748;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  border: 1px solid #4a5568;
+}
+
+.dark-mode .table {
+  color: #ffffff;
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+  background-color: #4a5568;
+  border-color: #4a5568;
+  color: #ffffff;
+}
+
+.dark-mode .form-control::placeholder {
+  color: #a0aec0;
+}
+
+.dark-mode .stat-card h4,
+.dark-mode .chart-container h6,
+.dark-mode .filter-section h6 {
+  color: #ffffff;
+}
+
+.dark-mode .card-header {
+  background: linear-gradient(135deg, #2c5282, #3182ce) !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .table th {
+  background: linear-gradient(135deg, #2c5282, #3182ce);
+  color: #ffffff;
+}
+
+.dark-mode .table td {
+  color: #ffffff;
+  background-color: #2d3748;
+  border-bottom: 1px solid #4a5568;
+}
+
+.dark-mode .table-hover tbody tr:hover {
+  background-color: rgba(49, 130, 206, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .btn-outline-light {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.dark-mode .btn-light {
+  background-color: #4a5568;
+  color: #ffffff;
+  border-color: #4a5568;
+}
+
+.dark-mode .footer {
+  background: #1a202c;
+  color: #ffffff;
+}
+
+.dark-mode small {
+  color: #b0b0b0 !important;
+}
+
+/* Dark mode untuk legenda zona */
+.dark-mode .legend-zona {
+  background: #2d3748;
+  border: 1px solid #4a5568;
+}
+
+.dark-mode .legend-zona h6 {
+  color: #ffffff;
+  border-bottom-color: #4a5568;
+}
+
+.dark-mode .zona-text {
+  color: #e2e8f0;
+}
+
+/* Dark mode untuk jam digital */
+.dark-mode .digital-clock-container {
+  background: linear-gradient(135deg, #2c5282, #3182ce);
+  border: 1px solid #4a5568;
+}
+
+/* ========== SOLUSI KHUSUS UNTUK LEGENDA PETA ========== */
+
+/* PENTING: Reset semua style untuk elemen di dalam peta - TIDAK PAKAI INHERIT */
+.dark-mode #map * {
+  color: initial !important;
+  background-color: initial !important;
+  border-color: initial !important;
+  fill: initial !important;
+  stroke: initial !important;
+}
+
+/* Khusus untuk teks legenda di peta (angka 0,1,2,3) */
+.dark-mode .ol-viewport .ol-layer div,
+.dark-mode .ol-viewport div[style*="color"],
+.dark-mode .ol-layer div[style*="color"],
+.dark-mode .ol-viewport span,
+.dark-mode .ol-layer span {
+  color: #000000 !important;
+  background-color: transparent !important;
+  text-shadow: 1px 1px 2px white !important;
+}
+
+/* Kontrol peta (zoom, dll) */
+.dark-mode .ol-control {
+  background-color: rgba(255,255,255,0.8) !important;
+}
+
+.dark-mode .ol-control button {
+  background-color: rgba(255,255,255,0.9) !important;
+  color: #000000 !important;
+  border: 1px solid #ccc !important;
+}
+
+.dark-mode .ol-control button:hover {
+  background-color: white !important;
+  color: #000000 !important;
+}
+
+.dark-mode .ol-scale-line {
+  background-color: rgba(255,255,255,0.8) !important;
+}
+
+.dark-mode .ol-scale-line-inner {
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.dark-mode .ol-attribution {
+  background-color: rgba(255,255,255,0.8) !important;
+  color: #000000 !important;
+}
+
+.dark-mode .ol-attribution ul {
+  color: #000000 !important;
+}
+
+.dark-mode .ol-attribution a {
+  color: #0066cc !important;
+}
+
+/* Popup di peta */
+.dark-mode .ol-popup {
+  background-color: #2d3748 !important;
+  color: #ffffff !important;
+  border: 1px solid #4a5568 !important;
+}
+
+.dark-mode .ol-popup-content {
+  color: #ffffff !important;
+}
+
+.dark-mode .ol-popup-closer {
+  color: #ffffff !important;
+}
+
+/* Layer switcher */
+.dark-mode .layer-switcher {
+  background-color: rgba(255,255,255,0.9) !important;
+  color: #000000 !important;
+}
+
+.dark-mode .layer-switcher .panel {
+  background-color: white !important;
+  color: #000000 !important;
+}
+
+/* Pastikan canvas peta tidak terpengaruh */
+.dark-mode .ol-viewport canvas {
+  filter: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .stat-card {
+    margin-bottom: 15px;
+  }
+  
+  .main-map {
+    height: 300px !important;
+  }
+  
+  .chart-container {
+    margin-bottom: 15px;
+  }
+  
+  .chart-wrapper {
+    height: 180px;
+  }
+  
+  /* Responsive adjustments untuk chart group */
+  .charts-group .chart-wrapper {
+    height: 160px;
+  }
+  
+  .charts-group {
+    gap: 15px;
+  }
+  
+  /* Legenda zona responsive */
+  .legend-zona-container {
+    max-width: 200px;
+    right: 5px;
+    bottom: 50px;
+  }
+  
+  .legend-zona {
+    padding: 8px;
+    font-size: 10px;
+  }
+  
+  .zona-text {
+    font-size: 9px;
+  }
+  
+  /* Table responsive */
+  .table-responsive {
+    font-size: 0.75rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 6px 4px;
+  }
+  
+  /* Jam digital responsive */
+  .time-main {
+    font-size: 1.8rem;
+  }
+  
+  .date-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .weather-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Custom scrollbar for table */
+.table-responsive::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.dark-mode .table-responsive::-webkit-scrollbar-track {
+  background: #4a5568;
+}
+
+.dark-mode .table-responsive::-webkit-scrollbar-thumb {
+  background: #718096;
+}
+
+.dark-mode .table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Layout improvements */
+.row.g-3 {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.row.g-3 > [class*="col-"] {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.row.g-2 {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.row.g-2 > [class*="col-"] {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2980b9, #2573a7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+}
+
+.footer {
+  background: linear-gradient(135deg, var(--primary-color), #34495e);
+  color: white;
+  margin-top: 2rem;
+}
